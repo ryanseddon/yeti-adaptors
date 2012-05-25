@@ -1,6 +1,6 @@
 # jasmine Yeti adaptor
 
-Super simple adaptor you can drop straight into your jasmine test suite. Place the `jasmine-yeti-adaptor.js` file right after the qunit.js file.
+Super simple adaptor you can drop straight into your jasmine test suite. Place the `jasmine-yeti-adaptor.js` file right after the jasmine file.
 
 In order for Yeti to know what to pass back and if any tests failed etc you need to do a small bit of setup code.
 
