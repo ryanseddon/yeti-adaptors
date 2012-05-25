@@ -6,4 +6,4 @@ To find out how you can use them navigate to the unit testing framework you use.
 
 ## Contribute
 
-I've only done adaptors for jasmine and QUnit, but if you use another framework feel free to fork and add it in the same style as the other too.
+I've only done adaptors for jasmine and QUnit, but if you use another framework feel free to fork and add it in the same style as the other examples.
