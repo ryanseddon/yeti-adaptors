@@ -71,8 +71,8 @@ var BUNYIP = BUNYIP || {};
 			}
 
 			BUNYIP[suiteName][runner.description] = {
-				result: (test.passed_) ? test.passed_ : "fail",
-				message: message(test),
+				result: (test && test.passed_) ? test.passed_ : "fail",
+				message: test ? message(test):'',
 				name: runner.description
 			};
 		};
