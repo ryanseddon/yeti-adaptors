@@ -18,7 +18,9 @@ var BUNYIP = BUNYIP || {};
     /* Yeti uses socket.io and emits a results event when test suite has completed */
     function complete(results) {
         //console.log(results);
-        $yetify.socket.json.emit("results", results);
+        if (win.$yetify !== undef) {
+	        $yetify.socket.json.emit("results", results);
+        }
     }
 	
 	function type(obj) {
@@ -69,8 +71,8 @@ var BUNYIP = BUNYIP || {};
 			}
 
 			BUNYIP[suiteName][runner.description] = {
-				result: (test.passed_) ? test.passed_ : "fail",
-				message: message(test),
+				result: (test && test.passed_) ? test.passed_ : "fail",
+				message: test ? message(test):'',
 				name: runner.description
 			};
 		};
