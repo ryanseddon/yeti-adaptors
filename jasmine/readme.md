@@ -8,8 +8,11 @@ In order for Yeti to know what to pass back and if any tests failed etc you need
 var jasmineEnv = jasmine.getEnv();
 
 jasmineEnv.addReporter(new jasmine.TrivialReporter());
-    
-BUNYIP.hookup(jasmineEnv);
+
+// If you're not running it through Yeti don't call the hookup method
+if (window.$yetify !== undefined) {
+    BUNYIP.hookup(jasmineEnv);
+}
     
 jasmineEnv.execute();
 ```
