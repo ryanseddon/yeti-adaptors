@@ -19,7 +19,7 @@ var BUNYIP = BUNYIP || {};
     function complete(results) {
         //console.log(results);
         if (win.$yetify !== undef) {
-            $yetify.socket.json.emit("results", results);
+            $yetify.tower.emit("results", results);
         }
     }
     

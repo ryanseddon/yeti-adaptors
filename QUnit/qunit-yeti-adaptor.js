@@ -18,7 +18,7 @@ var BUNYIP = BUNYIP || {};
     
     /* Yeti uses socket.io and emits a results event when test suite has completed */
     function complete(results) {
-        $yetify.socket.json.emit("results", results);
+        $yetify.tower.emit("results", results);
     }
     
     function type(obj) {
