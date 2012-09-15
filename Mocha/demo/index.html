@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Mocha</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="lib/mocha.css" />
+    <script src="lib/mocha.js"></script>
+    <script src="lib/expect.js"></script>
+	<script src="../mocha-yeti-adaptor.js"></script>
+    <script>mocha.setup('bdd');</script>
+    <script>
+		describe('Array', function(){
+		  describe('#push()', function(){
+			it('should append a value', function(){
+			  var arr = [];
+			  arr.push('foo');
+			  arr.push('bar');
+			  arr.push('baz');
+
+			  expect(arr[0]).to.be('foo');
+			  expect(arr[1]).to.be('bar');
+			  expect(arr[2]).to.be('baz');
+			})
+
+			it('should return the length', function(){
+			  var arr = [];
+			  
+			  arr.push('foo');
+			  expect(arr).to.have.length(1);
+			  arr.push('bar');
+			  expect(arr).to.have.length(2);
+			  arr.push('baz');
+			  expect(arr).to.have.length(3);
+			})
+		  })
+		})
+
+		describe('Array', function(){
+		  describe('#pop()', function(){
+			it('should remove and return the last value', function(){
+			  var arr = [1,2,3];
+			  
+			  expect(arr.pop()).to.be(3);
+			  expect(arr.pop()).to.be(2);
+			  expect(arr.pop()).to.be(1);
+			})
+
+			it('should adjust .length', function(){
+			  var arr = [1,2,3];
+			  arr.pop();
+			  expect(arr.length).to.be(2);
+			})
+		  })
+		})
+	</script>
+    <script>
+      window.onload = function(){
+        var runner = mocha.run();
+        
+		runner.globals(['foo', 'bar', 'baz', 'console']);
+        BUNYIP.hookup(runner);
+      };
+    </script>
+  </head>
+  <body>
+    <div id="mocha"></div>
+  </body>
+</html>
